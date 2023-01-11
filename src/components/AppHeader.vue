@@ -17,7 +17,7 @@ export default {
     data() {
         return {
             store,
-            apiUrl: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=350",
+            apiUrl: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=400",
         }
     },
     methods: {
@@ -28,6 +28,7 @@ export default {
             })
                 .then((response) => {
                     this.store.cardsList = (response.data.data);
+
                 })
         }
     },

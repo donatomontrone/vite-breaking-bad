@@ -1,38 +1,54 @@
 <template>
-    <main class="m-3">
-        <div class="container">
-            <div class="row g-3">
-                <div class="col-12 bg-dark">
-                    <p class="fs-5 fw-bold text-white">Found {{ store.cardsList.length }} cards</p>
+    <main class="mt-3">
+        <div class="container" v-if="isLoading">
+            <div class="row">
+                <div class="col-12">
+                    <AppLoader />
                 </div>
-                <div class="col-6 col-md-3 col-lg-2 d-flex" v-for=" card in store.cardsList">
-                    <div class="card text-bg-dark mb-3">
-                        <img :src="card.card_images[0].image_url" class="card-img-top" :alt="card.name">
-                        <div class="card-body">
-                            <h6 class="card-title text-center text-danger">{{ card.name }}</h6>
-                            <p class="card-text text-center fw-lighter">{{ card.archetype }}</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="container" v-else>
+            <div class="col-12 bg-dark">
+                <p class="fs-5 fw-bold text-white">Found {{ store.cardsList.length }} cards</p>
+            </div>
+            <div class="row g-2">
+                <AppCards v-for="cardElement in store.cardsList" :cardInfo="cardElement" />
             </div>
         </div>
     </main>
 </template>
 <script>
 import { store } from '../store.js';
+import AppCards from './AppCards.vue';
+import AppLoader from './AppLoader.vue';
 export default {
     name: "AppMain",
+    components: {
+        AppCards,
+        AppLoader
+    },
     data() {
         return {
-            store
-        };
+            store,
+            isLoading: true,
+        }
     },
-
+    methods: {
+        stopLoader() {
+            this.isLoading = false;
+        }
+    },
+    created() {
+        setTimeout(this.stopLoader, 3000);
+    }
 }
 </script>
 <style lang="scss" scoped>
 main {
-    height: calc(100% - 80px);
-
+    background-image: url(https://preview.redd.it/zlprsrsjpbf61.png?auto=webp&s=692301b1538e06081ef45417980c1499fb8d9454);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 60px);
 }
 </style>
