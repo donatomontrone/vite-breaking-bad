@@ -1,0 +1,23 @@
+@use './partials/variables.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:wght@100;300;400;500;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+    background-image: url(https://preview.redd.it/zlprsrsjpbf61.png?auto=webp&s=692301b1538e06081ef45417980c1499fb8d9454);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper {
+    max-width: 67%;
+    margin: 0 auto;
+}

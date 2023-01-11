@@ -38,7 +38,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 header {
-    height: 50px;
+    height: 80px;
+    background-color: #FFFFFF;
 
     a {
         font-size: 2rem;
