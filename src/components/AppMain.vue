@@ -5,12 +5,12 @@
                 <div class="col-12 bg-dark">
                     <p class="fs-5 fw-bold text-white">Found {{ store.cardsList.length }} cards</p>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2" v-for=" card in store.cardsList">
-                    <div class="card">
-                        <img :src="card.card_images[0].image_url" class="card-img-top" alt="...">
+                <div class="col-6 col-md-3 col-lg-2 d-flex" v-for=" card in store.cardsList">
+                    <div class="card text-bg-dark mb-3">
+                        <img :src="card.card_images[0].image_url" class="card-img-top" :alt="card.name">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h6 class="card-title text-center text-danger">{{ card.name }}</h6>
+                            <p class="card-text text-center fw-lighter">{{ card.archetype }}</p>
                         </div>
                     </div>
                 </div>
