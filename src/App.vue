@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
-  <SelectComponent @selectedInput="getResponse()" />
+  <SelectComponent @selectedInput="getCards" />
   <CounterComponent />
   <AppMain />
 </template>

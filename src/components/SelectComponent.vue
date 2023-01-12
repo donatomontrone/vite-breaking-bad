@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3 offset-4">
-                    <select class="form-select-sm" v-on:change="$emit('selectedInput', userSelect)">
+                    <select class="form-select-sm" v-model="userInput" v-on:change="$emit('selectedInput', userInput)">
                         <option selected value="chaos">Chaos</option>
                         <option value="cyber dragon">Cyber Drago</option>
                         <option value="blue-eyes">Occhi Blu</option>
@@ -19,7 +19,7 @@ export default {
     name: 'SelectComponents',
     data() {
         return {
-            userSelect: '',
+            userInput: ''
         }
     },
 }
