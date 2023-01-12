@@ -7,7 +7,7 @@ export default {
     name: "LoaderComponent"
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .spin-loader {
     height: 300px;
     width: 100%;

@@ -1,5 +1,6 @@
 <template>
   <AppHeader />
+  <SelectComponent @selectedInput="getResponse()" />
   <CounterComponent />
   <AppMain />
 </template>
@@ -7,24 +8,31 @@
 import { store } from './store.js';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/MainContent/AppMain.vue';
 import CounterComponent from './components/CounterComponent.vue'
+import SelectComponent from './components/SelectComponent.vue';
+import AppMain from './components/MainContent/AppMain.vue';
 export default {
   components: {
     AppHeader,
     CounterComponent,
-    AppMain,
+    SelectComponent,
+    AppMain
   },
   data() {
     return {
       store,
-      apiUrl: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=1627",
+      apiUrl: "https://db.ygoprodeck.com/api/v7/cardinfo.php?",
     }
   },
   methods: {
-    getCard() {
+    getCards(archetypeInput = 'chaos') {
       axios.get(this.apiUrl, {
         params: {
+          num: 20,
+          offset: 0,
+          archetype: archetypeInput,
+          type: 'Effect Monster'
+
         }
       })
         .then((response) => {
@@ -33,12 +41,15 @@ export default {
         })
         .catch(function (error) {
           // handle error
-          console.log(error);
+          console.error(error);
         })
+    },
+    getResponse() {
+      console.log('Connessione eseguita')
     }
   },
   created() {
-    this.getCard();
+    this.getCards();
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <main class="mt-3">
+    <main class="pt-3">
         <div class="container" v-if="store.cardsList.length === 0">
             <div class="row">
                 <div class="col-12">
@@ -32,5 +32,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+main {
+    background: rgb(163, 106, 2);
+    background: linear-gradient(180deg, rgba(163, 106, 2, 1) 41%, rgba(92, 51, 6, 1) 88%);
+}
 </style>
