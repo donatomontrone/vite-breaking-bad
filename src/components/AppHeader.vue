@@ -10,31 +10,8 @@
     </header>
 </template>
 <script>
-import { store } from '../store.js';
-import axios from 'axios';
 export default {
     name: 'AppHeader',
-    data() {
-        return {
-            store,
-            apiUrl: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=400",
-        }
-    },
-    methods: {
-        getCard() {
-            axios.get(this.apiUrl, {
-                params: {
-                }
-            })
-                .then((response) => {
-                    this.store.cardsList = (response.data.data);
-
-                })
-        }
-    },
-    created() {
-        this.getCard();
-    }
 }
 </script>
 <style lang="scss" scoped>

@@ -1,15 +1,16 @@
 <template>
-    <div class="coin"></div>
+    <div class="spin-loader">
+    </div>
 </template>
 <script>
 export default {
-
+    name: "LoaderComponent"
 }
 </script>
 <style lang="scss">
-.coin {
-    height: 470px;
-    width: 320px;
+.spin-loader {
+    height: 300px;
+    width: 100%;
     animation:
         spin 2s linear infinite,
         change 3s infinite linear .5s;
