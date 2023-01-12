@@ -49,6 +49,6 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: calc(100vh - 60px);
+    height: calc(100% - 60px);
 }
 </style>
